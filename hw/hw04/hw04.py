@@ -125,20 +125,10 @@ def balanced(m):
             return length(nn) * total_weight(end(nn))
         return torque(left(n)) == torque(right(n))
 
-    if is_mobile(m):
-        if not is_mobile(end(left(m))) and not is_mobile(end(right(m))):
-            return torque_balanced(m) 
-
-        elif is_mobile(end(left(m))) and not is_mobile(end(right(m))):
-            return balanced(end(left(m))) and torque_balanced(m)
-
-        elif not is_mobile(end(left(m))) and is_mobile(end(right(m))):
-            return balanced(end(right(m))) and torque_balanced(m)
-
-        else:
-            return balanced(end(left(m))) and balanced(end(right(m))) and torque_balanced(m)
-    else:
+    if not is_mobile(m):
         return True
+    else:
+        return balanced(end(left(m))) and balanced(end(right(m))) and torque_balanced(m)
 
 
 def totals_tree(m):
