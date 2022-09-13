@@ -137,16 +137,13 @@ def cycle(f1, f2, f3):
             i = 1
             count = n // 3
             while i <= count:
-                x = x + 1
-                x = x * 2
-                x = x + 3
+                x = f3(f2(f1(x)))
                 i = i + 1
             mod = n % 3
             if mod == 1:
-                x = x + 1
+                x = f1(x)
             elif mod == 2:
-                x = x + 1
-                x = x * 2
+                x = f2(f1(x))
             return x
         return g
     return h
